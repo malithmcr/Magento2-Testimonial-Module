@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<form class="form testimonials"
+      action="<?php /* @escapeNotVerified */ echo $block->getTestimonialsFormAction(); ?>"
+      id="testimonials-form"
+      method="post"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'
+      enctype="multipart/form-data">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Submit Testimonial') ?></span></legend><br />
+        
+        <div class="field title required">
+            <label class="label" for="title"><span><?php /* @escapeNotVerified */ echo __('Title') ?></span></label>
+            <div class="control">
+                <input name="title" id="title" title="<?php /* @escapeNotVerified */ echo __('Title') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field info required">
+            <label class="label" for="info"><span><?php /* @escapeNotVerified */ echo __('Info : Name, Company Name') ?></span></label>
+            <div class="control">
+                <input name="info" id="info" title="<?php /* @escapeNotVerified */ echo __('Info : Name, Company Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" />
+            </div>
+        </div>
+        <!-- <div class="field image required">
+            <label class="label" for="image"><span><?php echo __('Image : Testimonial Image') ?></span></label>
+            <div class="control">
+                <input style="float: left; width: 97%; border: 1px solid rgba(0, 0, 0, 0.27); padding: 10px 17px; margin: 6px 3px;" name="image" id="image" title="<?php /* @escapeNotVerified */ echo __('Image : Testimonial Image') ?>" value="" class="input-text" type="file" accept="image/*" />
+            </div>
+        </div>-->
+        <div class="field testimonial-content required">
+            <label class="label" for="testimonial-content"><span><?php /* @escapeNotVerified */ echo __('Write Your Testimonial') ?></span></label>
+            <div class="control">
+                <textarea name="testimonial-content" id="testimonial-content" title="<?php /* @escapeNotVerified */ echo __('Write Your Testimonial Here') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?php /* @escapeNotVerified */ echo __('Submit') ?>" class="action submit primary">
+                <span><?php /* @escapeNotVerified */ echo __('Submit Testimonial') ?></span>
+            </button>
+        </div>
+    </div>
+</form>

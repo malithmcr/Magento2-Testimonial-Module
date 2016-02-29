@@ -1,0 +1,56 @@
+.testimonials-index-index .base {
+	color: rgb(51, 123, 170);
+	font-weight: bold;
+}
+.testimonials-submit-index .base{
+	display:none;
+}
+.testimonials-submit-index .page-title, .testimonials-index-index .page-title {
+	margin: 0;
+}
+.testimonials-index-index .page-title-wrapper {
+	text-align: center;
+}
+.testimonials-submit-index .columns , .testimonials-index-index .columns {
+	text-align: center;
+	padding: 5px;
+}
+.testimonials-index-index .testimonials-testimonial-list li {
+	list-style: none;
+	text-align: left;
+	float: left;
+	clear: both;
+}
+
+.testimonials-index-index .page-slogan {
+
+}
+
+.testimonials-index-index .testimonial-image {
+	float: left;
+}
+.testimonials-index-index .testimonial-image img {
+	border-radius: 50%;
+	width: 170px;
+	height: 170px;
+	border: 7px solid rgb(255, 255, 255);
+	box-shadow: 1px 1px 9px -1px;
+}
+.testimonials-index-index .testimonials-containts {
+	display: inline;
+	float: left;
+	padding: 16px 36px;
+	width: 66%;
+}
+.testimonials-index-index .testimonials-testimonial-item-meta {
+	float: right;
+}
+
+.testimonials-index-index .submit-testimonail {
+	float: right;
+	clear: both;
+	margin: 13px 182px 15px 1px;
+	background: rgb(255, 252, 252) none repeat scroll 0% 0%;
+	padding: 7px;
+	border: 1px solid rgba(0, 0, 0, 0.44);
+}

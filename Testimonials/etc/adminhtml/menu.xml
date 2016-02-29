@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Malithmcr_Testimonials::testimonial_content" title="Testimonials" module="Malithmcr_Testimonials" sortOrder="50" parent="Magento_Backend::content" resource="Malithmcr_Testimonials::testimonial_content" />
+        <add id="Malithmcr_Testimonials::testimonials" title="Testimonials List" module="Malithmcr_Testimonials" sortOrder="0" parent="Malithmcr_Testimonials::testimonial_content" action="testimonials/index" resource="Malithmcr_Testimonials::testimonials"/>  
+    </menu>
+</config>
