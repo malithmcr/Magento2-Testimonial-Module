@@ -1,4 +1,5 @@
 .htaccess.sample
+.idea/
 .modgit/
 .modman/
 app/code/community/Phoenix/
