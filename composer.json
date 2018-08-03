@@ -2,7 +2,7 @@
     "name": "malithmcr/testimonials",
     "description": "Clients Testimonials Module.",
     "type": "magento2-module",
-    "version": "1.0.0",
+    "version": "1.0.0-stable",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
@@ -24,7 +24,7 @@
             "Testimonials/registration.php"
         ],
         "psr-4": {
-            "Malithmcr\\Testimonials\\": "Testimonials/"
+            "Malithmcr\\Testimonials\\": "./"
         }
     }
 }
