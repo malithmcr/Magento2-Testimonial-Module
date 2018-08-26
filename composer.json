@@ -2,29 +2,20 @@
     "name": "malithmcr/testimonials",
     "description": "Clients Testimonials Module.",
     "type": "magento2-module",
-    "version": "1.0.0-stable",
+    "version": "1.0.0",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
     ],
     "require": {
-        "php": "^7",
-        "magento/magento-composer-installer": "*"
-    },
-    "extra": {
-        "map": [
-            [
-                "*",
-                "Malithmcr/Testimonials"
-            ]
-        ]
+        "php": "^7"
     },
     "autoload": {
         "files": [
-            "Testimonials/registration.php"
+            "registration.php"
         ],
         "psr-4": {
-            "Malithmcr\\Testimonials\\": "./"
+            "Malithmcr\\Testimonials\\": "./src"
         }
     }
 }
