@@ -2,6 +2,7 @@
 .idea/
 .modgit/
 .modman/
+vendor/
 app/code/community/Phoenix/
 app/code/community/Cm/
 app/code/core/
