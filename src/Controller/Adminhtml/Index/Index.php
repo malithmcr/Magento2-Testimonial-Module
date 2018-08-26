@@ -1,42 +1,58 @@
 <?php
+/**
+ * Index action of the Testimonials controller
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @package Malithmcr\Testimonials\Controller\Adminhtml\Index
+ * @licence OSL 3.0
+ */
+
 namespace Malithmcr\Testimonials\Controller\Adminhtml\Index;
 
-use Magento\Backend\App\Action\Context;
+use Magento\Backend\App\Action;
+use Magento\Backend\Model\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Backend\App\Action
+/**
+ * Class Index
+ */
+class Index extends Action
 {
-
     /**
      * @var PageFactory
      */
     protected $resultPageFactory;
 
     /**
-     * @param Context $context
+     * Constructor
+     *
+     * @param Action\Context $context
      * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        Context $context,
-        PageFactory $resultPageFactory
+        PageFactory $resultPageFactory,
+        Action\Context $context
     ) {
-        parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
+
+        parent::__construct($context);
     }
 
     /**
      * Index action
      *
-     * @return \Magento\Backend\Model\View\Result\Page
+     * @return Page
      */
     public function execute()
     {
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        /** @var Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Malithmcr_Testimonials::testimonial');
-        $resultPage->addBreadcrumb(__('Testimonials'), __('Testimonials'));
-        $resultPage->addBreadcrumb(__('Manage testimonial'), __('Manage Testimonials'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Testimonials'));
+
+        $resultPage->setActiveMenu('Malithmcr_Testimonials::testimonial')
+            ->addBreadcrumb(__('Testimonials'), __('Testimonials'))
+            ->addBreadcrumb(__('Manage testimonial'), __('Manage Testimonials'))
+            ->getConfig()->getTitle()->prepend(__('Testimonials'));
 
         return $resultPage;
     }
@@ -50,6 +66,4 @@ class Index extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Malithmcr_Testimonials::testimonial');
     }
-
-
 }

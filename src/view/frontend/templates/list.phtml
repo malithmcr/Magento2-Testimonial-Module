@@ -1,34 +1,36 @@
+<?php
+/**
+ * Testimonials List template
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @licence OSL 3.0
+ *
+ * @var $block \Malithmcr\Testimonials\Block\TestimonialsList
+ * @var $testimonial \Malithmcr\Testimonials\Model\Testimonial
+ */
+?>
 <span class="page-slogan"><?php echo __('What our clients say') ?></span>
 <ul class="testimonials-testimonial-list">
-    <?php /** @var $testimonial \Malithmcr\Testimonials\Model\Testimonial */ ?>
     <?php foreach ($block->getTestimonials() as $testimonial): ?>
         <li class="testimonials-testimonial-list-item">
-        	<div class="testimonial-image">
-        		<img src="<?php echo $this->getUrl('pub/media/', ['_secure' => $this->getRequest()->isSecure()]).$testimonial->getImage()	?>" />        		
-        	</div>
-        	<div class="testimonials-containts">
-            <h3 class="testimonials-testimonial-item-title">
-               <!-- <a href="<?php echo $testimonial->getUrl() ?>"> --><?php echo $testimonial->getTitle() ?><!--</a> -->
-            </h3>
-
-            <div class="testimonials-testimonial-item-content">
-                <?php echo $testimonial->getContent(); ?>
+            <div class="testimonial-image">
+                <img src="<?php echo $block->getUrl('pub/media/', ['_secure' => $block->getRequest()->isSecure()]).$testimonial->getImage()	?>" />
             </div>
-
-            <div class="testimonials-testimonial-item-meta">
-                <?php echo $testimonial->getInfo() ?>
-            </div>
+            <div class="testimonials-containts">
+                <h3 class="testimonials-testimonial-item-title">
+                    <a href="<?php echo $testimonial->getUrl() ?>"> <?php echo $testimonial->getTitle() ?></a>
+                </h3>
+                <div class="testimonials-testimonial-item-content">
+                    <?php echo $testimonial->getContent(); ?>
+                </div>
+                <div class="testimonials-testimonial-item-meta">
+                    <?php echo $testimonial->getInfo() ?>
+                </div>
             </div>
         </li>
     <?php endforeach; ?>
     <div class="submit-testimonail">
-    	<?php 
-    		if($block->getCustomerStatus())
-				echo  '<a href=" ' . $this->getUrl("testimonials/submit") . ' ">Submit Testimonial</a>';
-			else 
-				echo  '<a href=" ' . $this->getUrl("customer/account/login/") . ' ">Submit Testimonial</a>';
-    	?>
-    		
+        <a href="<?php echo $block->getUrl($block->getCustomerStatus() ? 'testimonials/submit/' : 'customer/account/login/'); ?>"
     </div>
-    
 </ul>

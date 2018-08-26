@@ -1,27 +1,40 @@
 <?php
+/**
+ * Index action of Submit Controller Testimonials module
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @package Malithmcr\Testimonials\Controller\Submit
+ * @licence OSL 3.0
+ */
+
 namespace Malithmcr\Testimonials\Controller\Submit;
 
-use \Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Action;
+use Magento\Customer\Model\Session as CustomerSession;
 
+/**
+ * Class Index
+ */
 class Index extends Action
 {
     /**
-     * Blog Submit, shows a list of recent blog posts.
-     *
-     * @return \Magento\Framework\View\Result\PageFactory
+     * @var CustomerSession
+     */
+    protected $customerSession;
+
+    /**
+     * Submit action
+     * Checks if the customer is logged in and redirects to login.
+     * Renders the form to submit new testimonial
      */
     public function execute()
     {
-    	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-    	$customerSession = $objectManager->get('Magento\Customer\Model\Session');
-		if($customerSession->isLoggedIn()) {
-		  $this->_view->loadLayout();
-        	$this->_view->renderLayout();   
-		}else{
-			$this->_redirect('customer/account/login/');
-			return;
-		}
-		
-    
+        if(!$this->customerSession->isLoggedIn()) {
+            $this->_redirect('customer/account/login/');
+        }
+
+        $this->_view->loadLayout();
+        $this->_view->renderLayout();
     }
 }

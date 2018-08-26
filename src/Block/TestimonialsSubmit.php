@@ -1,49 +1,77 @@
 <?php
+/**
+ * Testimonials data interface
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @package Malithmcr\Testimonials\Block
+ * @licence OSL 3.0
+ */
+
 namespace Malithmcr\Testimonials\Block;
 
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Customer\Model\Session as CustomerSession;
+use Malithmcr\Testimonials\Model\Testimonial;
 use Malithmcr\Testimonials\Api\Data\TestimonialInterface;
 use Malithmcr\Testimonials\Model\ResourceModel\Testimonial\Collection as TestimonialCollection;
+use Malithmcr\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory as TestimonialsCollectionFactory;
 
-class TestimonialsSubmit extends \Magento\Framework\View\Element\Template implements
-    \Magento\Framework\DataObject\IdentityInterface
+/**
+ * Class TestimonialsSubmit
+ */
+class TestimonialsSubmit extends Template implements IdentityInterface
 {
     /**
-     * @var \Malithmcr\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory
+     * @var TestimonialsCollectionFactory $testimonialCollectionFactory
      */
-    protected $_testimonialCollectionFactory;
+    protected $testimonialCollectionFactory;
+
+    /**
+     * @var CustomerSession $customerSession
+     */
+    protected $customerSession;
 
     /**
      * Construct
      *
-     * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Malithmcr\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory $testimonialCollectionFactory,
+     * @param TestimonialsCollectionFactory $testimonialCollectionFactory ,
+     * @param CustomerSession $session
+     * @param Context $context
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Malithmcr\Testimonials\Model\ResourceModel\Testimonial\CollectionFactory $testimonialCollectionFactory,
+        TestimonialsCollectionFactory $testimonialCollectionFactory,
+        CustomerSession $session,
+        Context $context,
         array $data = []
     ) {
+        $this->testimonialCollectionFactory = $testimonialCollectionFactory;
+        $this->customerSession = $session;
+
         parent::__construct($context, $data);
-        $this->_testimonialCollectionFactory = $testimonialCollectionFactory;
     }
 
     /**
-     * @return \Malithmcr\Testimonials\Model\ResourceModel\Testimonial\Collection
+     * @return TestimonialCollection
      */
     public function getTestimonials()
     {
         // Check if Testimonials has already been defined
         if (!$this->hasData('testimonials')) {
-            $testimonials = $this->_testimonialCollectionFactory
+            $testimonials = $this->testimonialCollectionFactory
                 ->create()
                 ->addFilter('is_active', 1)
                 ->addOrder(
                     TestimonialInterface::CREATION_TIME,
                     TestimonialCollection::SORT_ORDER_DESC
                 );
+
             $this->setData('testimonials', $testimonials);
         }
+
         return $this->getData('testimonials');
     }
 
@@ -54,34 +82,26 @@ class TestimonialsSubmit extends \Magento\Framework\View\Element\Template implem
      */
     public function getIdentities()
     {
-        return [\Malithmcr\Testimonials\Model\Testimonial::CACHE_TAG . '_' . 'list'];
+        return [Testimonial::CACHE_TAG . '_' . 'list'];
     }
-	
-	/**
-	 * Check if customer loggedIn 
-	 * 
-	 * @return bool
-	 */
-	 public function getCustomerStatus()
-	 {
-	 	
-		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-		$customerSession = $objectManager->get('Magento\Customer\Model\Session');
-		if($customerSession->isLoggedIn()) {
-		    return true;
-		}else{
-			return false;
-		}
-	
-	 }
-	 
-	 /**
-	 * Form Submit Action 
-	 *
-	 */
-	 public function getTestimonialsFormAction()
-	 {
-		  return $this->getUrl('testimonials/submit/post', ['_secure' => true]);
-	 }
 
+    /**
+     * Check if customer loggedIn
+     *
+     * @return bool
+     */
+    public function getCustomerStatus()
+    {
+        return $this->customerSession->isLoggedIn();
+    }
+
+    /**
+     * Form Submit Action
+     *
+     * @return string
+     */
+    public function getTestimonialsFormAction()
+    {
+        return $this->getUrl('testimonials/submit/post', ['_secure' => true]);
+    }
 }

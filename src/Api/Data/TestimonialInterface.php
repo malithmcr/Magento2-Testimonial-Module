@@ -1,21 +1,32 @@
 <?php
+/**
+ * Testimonials data interface
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @package Malithmcr\Testimonials\Api\Data
+ * @licence OSL 3.0
+ */
 namespace Malithmcr\Testimonials\Api\Data;
 
-
+/**
+ * Interface TestimonialInterface
+ */
 interface TestimonialInterface
 {
-	 /**
-     * Constants for keys of data array. Identical to the name of the getter in snake case
+    /**
+     * Constants for keys of data array.
+     * Identical to the name of the getter in snake case
      */
     const TESTIMONIAL_ID = 'testimonial_id';
-    const URL_KEY        = 'url_key';
-    const TITLE          = 'title';
-    const CONTENT        = 'content';
-	const IMAGE          = 'image';
-	const INFO           = 'info';
     const CREATION_TIME  = 'creation_time';
     const UPDATE_TIME    = 'update_time';
     const IS_ACTIVE      = 'is_active';
+    const URL_KEY        = 'url_key';
+    const CONTENT        = 'content';
+    const TITLE          = 'title';
+    const IMAGE          = 'image';
+    const INFO           = 'info';
 
     /**
      * Get ID
@@ -44,15 +55,15 @@ interface TestimonialInterface
      * @return string|null
      */
     public function getContent();
-	
-	/**
+
+    /**
      * Get image
      *
      * @return string|null
      */
     public function getImage();
 
-	/**
+    /**
      * Get Info
      *
      * @return string|null
@@ -84,7 +95,8 @@ interface TestimonialInterface
      * Set ID
      *
      * @param int $id
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setId($id);
 
@@ -92,14 +104,15 @@ interface TestimonialInterface
      * Set URL Key
      *
      * @param string $url_key
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setUrlKey($url_key);
 
     /**
      * Return full URL including base url.
      *
-     * @return mixed
+     * @return string
      */
     public function getUrl();
 
@@ -107,7 +120,8 @@ interface TestimonialInterface
      * Set title
      *
      * @param string $title
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setTitle($title);
 
@@ -115,7 +129,8 @@ interface TestimonialInterface
      * Set content
      *
      * @param string $content
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setContent($content);
 
@@ -123,7 +138,8 @@ interface TestimonialInterface
      * Set Image
      *
      * @param string $image
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setImage($image);
 
@@ -131,7 +147,8 @@ interface TestimonialInterface
      * Set Info
      *
      * @param string $info
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setInfo($info);
 
@@ -139,7 +156,8 @@ interface TestimonialInterface
      * Set creation time
      *
      * @param string $creationTime
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setCreationTime($creationTime);
 
@@ -147,7 +165,8 @@ interface TestimonialInterface
      * Set update time
      *
      * @param string $updateTime
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setUpdateTime($updateTime);
 
@@ -155,7 +174,8 @@ interface TestimonialInterface
      * Set is active
      *
      * @param int|bool $isActive
-     * @return \Ashsmith\Blog\Api\Data\PostInterface
+     *
+     * @return TestimonialInterface
      */
     public function setIsActive($isActive);
 }

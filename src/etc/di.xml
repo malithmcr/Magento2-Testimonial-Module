@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * @module  Malithmcr_Testimonials
+ * @author  Malith Priyashan
+ * @licence OSL 3.0
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Malithmcr\Testimonials\Api\Data\TestimonialInterface" type="Malithmcr\Testimonials\Model\Testimonial" />
     <virtualType name="TestimonialGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">

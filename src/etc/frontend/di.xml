@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * @module  Malithmcr_Testimonials
+ * @author  Malith Priyashan
+ * @licence OSL 3.0
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Framework\App\RouterList">
         <arguments>
+            <!--@TODO Class not found, needs to be fixed-->
             <argument name="routerList" xsi:type="array">
                 <item name="testimonials" xsi:type="array">
                     <item name="class" xsi:type="string">Malithmcr\Testimonials\Controller\Router</item>

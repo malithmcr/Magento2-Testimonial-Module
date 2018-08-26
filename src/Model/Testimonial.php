@@ -1,17 +1,34 @@
-<?php namespace Malithmcr\Testimonials\Model;
+<?php
+/**
+ * Testimonials Model
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @package Malithmcr\Testimonials\Model
+ * @licence OSL 3.0
+ */
 
-use Malithmcr\Testimonials\Api\Data\TestimonialInterface;
+namespace Malithmcr\Testimonials\Model;
+
+use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\Data\Collection\AbstractDb;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\Context;
+use Magento\Framework\UrlInterface;
+use Magento\Framework\Registry;
+use Malithmcr\Testimonials\Api\Data\TestimonialInterface;
 
-class Testimonial  extends \Magento\Framework\Model\AbstractModel implements TestimonialInterface, IdentityInterface
+/**
+ * Class Testimonial
+ */
+class Testimonial  extends AbstractModel implements TestimonialInterface, IdentityInterface
 {
-
     /**
      * Testimonial's Statuses
      */
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 0;
-    /****/
 
     /**
      * CMS page cache tag
@@ -31,28 +48,37 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     protected $_eventPrefix = 'Testimonials_Testimonial';
 
     /**
-     * @var \Magento\Framework\UrlInterface
+     * @var UrlInterface
      */
     protected $_urlBuilder;
 
     /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\Model\ResourceModel\AbstractResource|null $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb|null $resourceCollection
-     * @param \Magento\Framework\UrlInterface $urlBuilder
+     * Testimonial Constructor.
+     *
+     * @param Context $context
+     * @param Registry $registry
+     * @param AbstractResource|null $resource
+     * @param AbstractDb|null $resourceCollection
+     * @param UrlInterface $urlBuilder
      * @param array $data
      */
     function __construct(
-        \Magento\Framework\Model\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\UrlInterface $urlBuilder,
-        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
-        array $data = [])
-    {
+        UrlInterface $urlBuilder,
+        Context $context,
+        Registry $registry,
+        AbstractResource $resource = null,
+        AbstractDb $resourceCollection = null,
+        array $data = []
+    ) {
         $this->_urlBuilder = $urlBuilder;
-        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
+
+        parent::__construct(
+            $context,
+            $registry,
+            $resource,
+            $resourceCollection,
+            $data
+        );
     }
 
     /**
@@ -70,7 +96,10 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * return Testimonial id if Testimonial exists
      *
      * @param string $url_key
+     *
      * @return int
+     *
+     * @TODO Avoid using deprecated class
      */
     public function checkUrlKey($url_key)
     {
@@ -87,6 +116,7 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     {
         return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled')];
     }
+
     /**
      * Return unique ID(s) for each object in system
      *
@@ -160,8 +190,8 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     {
         return $this->getData(self::IMAGE);
     }
-	
-	 /**
+
+    /**
      * Get info
      *
      * @return string|null
@@ -170,7 +200,7 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     {
         return $this->getData(self::INFO);
     }
-	
+
     /**
      * Get creation time
      *
@@ -205,7 +235,8 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * Set ID
      *
      * @param int $id
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setId($id)
     {
@@ -216,7 +247,8 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * Set URL Key
      *
      * @param string $url_key
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setUrlKey($url_key)
     {
@@ -227,7 +259,8 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * Set title
      *
      * @param string $title
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setTitle($title)
     {
@@ -238,40 +271,44 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * Set content
      *
      * @param string $content
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setContent($content)
     {
         return $this->setData(self::CONTENT, $content);
     }
 
-	/**
+    /**
      * Set image
      *
-     * @param string $content
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     * @param string $image
+     *
+     * @return TestimonialInterface
      */
     public function setImage($image)
     {
         return $this->setData(self::IMAGE, $image);
     }
-	
-	/**
+
+    /**
      * Set info
      *
      * @param string $info
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setInfo($info)
     {
         return $this->setData(self::INFO, $info);
     }
-	
+
     /**
      * Set creation time
      *
      * @param string $creation_time
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setCreationTime($creation_time)
     {
@@ -282,7 +319,8 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * Set update time
      *
      * @param string $update_time
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setUpdateTime($update_time)
     {
@@ -293,11 +331,11 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
      * Set is active
      *
      * @param int|bool $is_active
-     * @return \Malithmcr\Testimonials\Api\Data\TestimonialInterface
+     *
+     * @return TestimonialInterface
      */
     public function setIsActive($is_active)
     {
         return $this->setData(self::IS_ACTIVE, $is_active);
     }
-
 }

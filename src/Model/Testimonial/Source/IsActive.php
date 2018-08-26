@@ -1,19 +1,34 @@
 <?php
+/**
+ * Testimonials Source
+ *
+ * @module Malithmcr_Testimonials
+ * @author Malith Priyashan
+ * @package Malithmcr\Testimonials\Model\Testimonial\Source
+ * @licence OSL 3.0
+ */
+
 namespace Malithmcr\Testimonials\Model\Testimonial\Source;
 
-class IsActive implements \Magento\Framework\Data\OptionSourceInterface
+use Magento\Framework\Data\OptionSourceInterface;
+use Malithmcr\Testimonials\Model\Testimonial;
+
+/**
+ * Class IsActive
+ */
+class IsActive implements OptionSourceInterface
 {
     /**
-     * @var \Malithmcr\Testimonials\Model\Testimonial
+     * @var Testimonial
      */
     protected $testimonial;
 
     /**
      * Constructor
      *
-     * @param \Malithmcr\Testimonials\Model\Testimonial $testimonial
+     * @param Testimonial $testimonial
      */
-    public function __construct(\Malithmcr\Testimonials\Model\Testimonial $testimonial)
+    public function __construct(Testimonial $testimonial)
     {
         $this->testimonial = $testimonial;
     }
@@ -27,12 +42,14 @@ class IsActive implements \Magento\Framework\Data\OptionSourceInterface
     {
         $options[] = ['label' => '', 'value' => ''];
         $availableOptions = $this->testimonial->getAvailableStatuses();
+
         foreach ($availableOptions as $key => $value) {
             $options[] = [
                 'label' => $value,
                 'value' => $key,
             ];
         }
+
         return $options;
     }
 }
