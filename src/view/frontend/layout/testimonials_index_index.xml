@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @module  Malithmcr_Testimonials
+ * @author  Malith Priyashan
+ * @licence OSL 3.0
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- @TODO Initialize some preprocessor for css -->
+        <css src="Malithmcr_Testimonials::css/testimonials.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Testimonials</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Malithmcr\Testimonials\Block\TestimonialsList" name="testimonials.list" template="list.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,21 @@
+{
+    "name": "malithmcr/testimonials",
+    "description": "Clients Testimonials Module.",
+    "type": "magento2-module",
+    "version": "0.7.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": "^7"
+    },
+    "autoload": {
+        "files": [
+            "src/registration.php"
+        ],
+        "psr-4": {
+            "Malithmcr\\Testimonials\\": "./src"
+        }
+    }
+}
