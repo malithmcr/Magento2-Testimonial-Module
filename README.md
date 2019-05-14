@@ -1,5 +1,5 @@
 # Magento2-Testimonial-Module
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 <h1>The module is not ready for production yet.</h1>
 <h2>Feel free to create PRs, expect version 1.0.0 as stable</h2>
@@ -18,7 +18,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://craftcode.design/"><img src="https://avatars3.githubusercontent.com/u/4549859?v=4" width="100px;" alt="Malith Priyashan"/><br /><sub><b>Malith Priyashan</b></sub></a><br /><a href="#infra-malithmcr" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/malithmcr/Magento2-Testimonial-Module/commits?author=malithmcr" title="Tests">⚠️</a> <a href="https://github.com/malithmcr/Magento2-Testimonial-Module/commits?author=malithmcr" title="Code">💻</a></td></tr></table>
+<table><tr><td align="center"><a href="https://craftcode.design/"><img src="https://avatars3.githubusercontent.com/u/4549859?v=4" width="100px;" alt="Malith Priyashan"/><br /><sub><b>Malith Priyashan</b></sub></a><br /><a href="#infra-malithmcr" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/malithmcr/Magento2-Testimonial-Module/commits?author=malithmcr" title="Tests">⚠️</a> <a href="https://github.com/malithmcr/Magento2-Testimonial-Module/commits?author=malithmcr" title="Code">💻</a></td><td align="center"><a href="https://github.com/abrorAbdullaev"><img src="https://avatars0.githubusercontent.com/u/21175366?v=4" width="100px;" alt="Abror Abdullaev"/><br /><sub><b>Abror Abdullaev</b></sub></a><br /><a href="#infra-abrorAbdullaev" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/malithmcr/Magento2-Testimonial-Module/commits?author=abrorAbdullaev" title="Tests">⚠️</a> <a href="https://github.com/malithmcr/Magento2-Testimonial-Module/commits?author=abrorAbdullaev" title="Code">💻</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
